@@ -1,12 +1,3 @@
-create table CUSTOMERS
-(
-    id           serial primary key,
-    name         text    not null,
-    surname      text    not null,
-    age          integer not null,
-    phone_number text not null
-);
-
 insert into CUSTOMERS (name, surname, age, phone_number)
 values ('Harrison', 'Mclaughlin', 39, '1-886-665-5850'),
        ('Felix', 'Carr', 31, '1-836-751-1541'),
@@ -18,17 +9,6 @@ values ('Harrison', 'Mclaughlin', 39, '1-886-665-5850'),
        ('Wayne', 'Floyd', 42, '1-531-738-2386'),
        ('Lyle', 'Joyner', 41, '1-981-343-2858'),
        ('Yoshio', 'Singleton', 24, '1-650-622-3219');
-
-
-create table ORDERS
-(
-    id           serial primary key,
-    date         date    not null,
-    customer_id  integer not null,
-    product_name text    not null,
-    amount       integer not null,
-    foreign key (customer_id) references CUSTOMERS (id)
-);
 
 insert into ORDERS (date, customer_id, product_name, amount)
 values ('02.28.22', 10, 'fridge', 1),
@@ -43,6 +23,3 @@ values ('02.28.22', 10, 'fridge', 1),
        ('08.05.22', 9, 'phone', 3),
        ('10.10.22', 7, 'smart assistant', 3),
        ('09.13.22', 5, 'laptop', 2);
-
-create index customer_id_index
-    on orders(customer_id);
